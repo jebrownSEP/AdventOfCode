@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "fs": "^0.0.1-security",
     "ramda": "^0.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.11",
+    "@types/ramda": "^0.28.20"
   }
 }
