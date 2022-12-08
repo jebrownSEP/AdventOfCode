@@ -130,10 +130,44 @@ function getSumOfDirectoriesLessThan100000(object: File | Directory): number {
 }
 
 
+
 const structure = getFileStructure();
 getAndSetSizeOfDirectoriesAndFiles(structure);
 // console.log(structure);
 const sum = getSumOfDirectoriesLessThan100000(structure);
 
 console.log("Part 1");
+// 1513699
 console.log(sum);
+
+
+// Total file system:  70000000
+// Total used space: 46876531
+console.log(structure.size);
+
+// Total unused space: 23123469
+// console.log(70000000 - (structure.size as number));
+
+// Total amount needed to free enough space: 6876531
+// console.log(30000000 - 23123469);
+
+let smallestSize = 999999999999;
+
+function getSmallestSizeAbove(object: File | Directory, atLeastSize: number) {
+  if(!(object as Directory).isDirectory) {
+    return;
+  } else {
+    const dir: Directory = object as Directory;
+    const childrenSum = R.sum(dir.children.map((child) => getSumOfDirectoriesLessThan100000(child)));
+    if(dir.size! >= atLeastSize && dir.size! < smallestSize) {
+      smallestSize = dir.size!;
+    }
+    dir.children.forEach((child) => getSmallestSizeAbove(child, atLeastSize));
+  }
+
+}
+
+getSmallestSizeAbove(structure, 6876531);
+console.log("Part 2");
+console.log(smallestSize);
+
