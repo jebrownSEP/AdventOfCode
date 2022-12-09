@@ -3,17 +3,6 @@ import * as R from 'ramda';
 
 
 
-
-function getTailVisitedLocations() {
-    try {
-        const lines = getFileByLinesSync('./day9/day9.txt');
-        return populateTailVisitedLocations(lines)
-        
-      } catch (err) {
-        console.error(err);
-      }
-      return [];
-}
 interface Knot{
   x: number;
   y: number;
@@ -21,18 +10,25 @@ interface Knot{
 // 0,0 is center
 // + x is right
 // + y is up
-let head: Knot = {
-  x: 0,
-  y: 0
-};
+const part1Knots: Knot[] = [
+  {x: 0, y: 0},
+  {x: 0, y: 0}
+];
 
-let tail: Knot = {
-  x: 0,
-  y: 0
-};
+function getTailVisitedLocations() {
+    try {
+        const lines = getFileByLinesSync('./day9/day9.txt');
+        return populateTailVisitedLocations(part1Knots, lines)
+        
+      } catch (err) {
+        console.error(err);
+      }
+      return [];
+}
 
 
-function populateTailVisitedLocations(lines: string[]) {
+
+function populateTailVisitedLocations(knots: Knot[], lines: string[]) {
   let tailVisitedLocations: string[] = ['0,0'];
   for (let i = 0; i< lines.length; i++) {
     const command = lines[i].split(' ');
@@ -40,15 +36,23 @@ function populateTailVisitedLocations(lines: string[]) {
     let distance = parseInt(command[1]);
 
     while(distance > 0) {
-      console.log('head', head);
-      console.log('tail', tail);
+      console.log('knots', knots);
 
-      moveKnot(head, direction);
+      // Move head
+      moveKnot(knots[0], direction);
 
-      if(!isTailTouchingHead()) {
-        moveTailTowardHead();
-        tailVisitedLocations.push(tail.x + ',' + tail.y);
+      for (let j = 1; j < knots.length; j++) {
+        if(!areKnotsTouching(knots[j-1], knots[j])) {
+          moveTailTowardsHead(knots[j], knots[j-1]);
+          if(j == knots.length -1) {
+            // this is the actual tail
+            tailVisitedLocations.push(knots[j].x + ',' + knots[j].y);
+          }
+        } else {
+          break; // don't need to check the other knots
+        }
       }
+
       distance -=1;
     }
   }
@@ -74,14 +78,14 @@ function moveKnot(knot: Knot, direction: string) {
   }
 }
 
-function isTailTouchingHead(): boolean {
-  const xDiff = Math.abs(head.x - tail.x);
-  const yDiff = Math.abs(head.y - tail.y);
+function areKnotsTouching(knot1: Knot, knot2: Knot): boolean {
+  const xDiff = Math.abs(knot1.x - knot2.x);
+  const yDiff = Math.abs(knot1.y - knot2.y);
   
   return xDiff <= 1 && yDiff <= 1;
 }
 
-function moveTailTowardHead() {
+function moveTailTowardsHead(tail: Knot, head: Knot) {
   const xDistance = head.x - tail.x;
   const yDistance = head.y - tail.y;
 
@@ -123,7 +127,7 @@ const end = Date.now();
 console.log(end - start);
 console.log(tailPositions);
 console.log("Part 1");
-console.log(R.uniq(tailPositions).length);
+console.log(R.uniq(tailPositions).length); // 6212
 
 console.log("Part 2");
 // console.log(maxScenicScore); 
