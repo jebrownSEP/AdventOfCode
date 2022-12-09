@@ -15,15 +15,29 @@ const part1Knots: Knot[] = [
   {x: 0, y: 0}
 ];
 
+const part2Knots: Knot[] = [
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0},
+  {x: 0, y: 0}
+];
+
 function getTailVisitedLocations() {
     try {
         const lines = getFileByLinesSync('./day9/day9.txt');
-        return populateTailVisitedLocations(part1Knots, lines)
-        
+        const part1 =  populateTailVisitedLocations(part1Knots, lines);
+        const part2 = populateTailVisitedLocations(part2Knots, lines);
+        return {part1, part2};
       } catch (err) {
         console.error(err);
       }
-      return [];
+      return {part1: [], part2: []};
 }
 
 
@@ -121,13 +135,13 @@ function moveTailTowardsHead(tail: Knot, head: Knot) {
 
 const start = Date.now();
 console.log('start', start);
-const tailPositions = getTailVisitedLocations();
+const {part1, part2} = getTailVisitedLocations();
 const end = Date.now();
-// console.log(treeVisibilityGrid);
 console.log(end - start);
-console.log(tailPositions);
+console.log(part1);
 console.log("Part 1");
-console.log(R.uniq(tailPositions).length); // 6212
+console.log(R.uniq(part1).length); // 6212
 
+console.log(part2);
 console.log("Part 2");
-// console.log(maxScenicScore); 
+console.log(R.uniq(part2).length);
