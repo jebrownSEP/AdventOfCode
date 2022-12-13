@@ -38,18 +38,18 @@ function getHeightOf(letter: string) {
 
 function getShortestPathPart1(lines: string[]): Path {
 
-  const pathsToTestStack: Path[] = [];
+  const pathsToTestQueue: Path[] = [];
   const visitedCoordinates: {[coordinate: string]: boolean} = {};
 
   let currentPath: Path = getStartingPath(lines)!;
-  pathsToTestStack.push(currentPath);
+  pathsToTestQueue.push(currentPath);
   visitedCoordinates[currentPath.currentLetterCoordinate.x + ',' + currentPath.currentLetterCoordinate.y] = true;
 
   // let bestPath: Path | null = null;
 
   while(currentPath.currentLetterElevation !== END_LETTER) {
-    if(pathsToTestStack.length > 0) {
-      currentPath = pathsToTestStack.pop()!;
+    if(pathsToTestQueue.length > 0) {
+      currentPath = pathsToTestQueue.shift()!;
       // if(currentPath.currentLetterElevation === END_LETTER) {
         // if(!bestPath || currentPath.numberOfSteps < (bestPath as Path).numberOfSteps){
         //   console.log('new best path', currentPath);
@@ -63,7 +63,7 @@ function getShortestPathPart1(lines: string[]): Path {
 
       // up
       if(y > 0 && !visitedCoordinates[x + ',' + (y-1)] && getHeightOf(lines[y-1][x]) <= getHeightOf(currentLetterElevation) + 1) {
-        pathsToTestStack.push({
+        pathsToTestQueue.push({
           steps: steps.concat([{
             letterElevation: lines[y-1][x],
             coordinate: x + ',' + (y-1),
@@ -78,7 +78,7 @@ function getShortestPathPart1(lines: string[]): Path {
       } 
       // down
       if(y < lines.length -1  && !visitedCoordinates[x + ',' + (y+1)] && getHeightOf(lines[y+1][x]) <= getHeightOf(currentLetterElevation) + 1) {
-        pathsToTestStack.push({
+        pathsToTestQueue.push({
           steps: steps.concat([{
             letterElevation: lines[y+1][x],
             coordinate: x + ',' + (y+1),
@@ -93,7 +93,7 @@ function getShortestPathPart1(lines: string[]): Path {
       }
       // left
       if(x > 0 && !visitedCoordinates[(x-1) + ',' + y] &&  getHeightOf(lines[y][x-1]) <= getHeightOf(currentLetterElevation) + 1) {
-          pathsToTestStack.push({
+          pathsToTestQueue.push({
             steps: steps.concat([{
               letterElevation: lines[y][x-1],
               coordinate: (x-1) + ',' + y,
@@ -108,7 +108,7 @@ function getShortestPathPart1(lines: string[]): Path {
       }
       // right
       if(x < lines[0].length-1 && !visitedCoordinates[(x+1) + ',' + y] &&  getHeightOf(lines[y][x+1]) <= getHeightOf(currentLetterElevation) + 1) {
-        pathsToTestStack.push({
+        pathsToTestQueue.push({
           steps: steps.concat([{
             letterElevation: lines[y][x+1],
             coordinate: (x+1) + ',' + y
@@ -170,9 +170,9 @@ console.log('start', start);
 const {part1, part2} = getShortestPath();
 const end = Date.now();
 console.log(end - start);
-console.log(part1);
+// console.log(part1);
 console.log("Part 1");
-console.log((part1 as Path).steps.length); // 579 too high
+console.log(R.uniq((part1 as Path).steps.map((step) => step.coordinate)).length) // 579 too high, 200 too low
 
 // const sortedMonkeys = part1.sort((a, b) => b.numberInspectedItems -  a.numberInspectedItems);
 // const monkeyBusiness = sortedMonkeys[0].numberInspectedItems * sortedMonkeys[1].numberInspectedItems;
