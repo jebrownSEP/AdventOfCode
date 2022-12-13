@@ -5,3 +5,8 @@ export function getFileByLinesSync(filePath) {
     const data = fs.readFileSync(filePath, 'utf8');
     return data.split('\n');
 }
+
+export interface Coordinate {
+    x: number;
+    y: number;
+}
