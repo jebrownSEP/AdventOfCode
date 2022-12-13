@@ -38,16 +38,15 @@ function getHeightOf(letter: string) {
 
 function getShortestPathPart1(lines: string[]): Path {
 
-  const pathsToTestQueue: Path[] = [];
+  const pathsToTestQueue: Path[] = getStartingPaths(lines);
   const visitedCoordinates: {[coordinate: string]: boolean} = {};
 
-  let currentPath: Path = getStartingPath(lines)!;
-  pathsToTestQueue.push(currentPath);
-  visitedCoordinates[currentPath.currentLetterCoordinate.x + ',' + currentPath.currentLetterCoordinate.y] = true;
+  let currentPath;
+  pathsToTestQueue.forEach((path) => visitedCoordinates[path.currentLetterCoordinate.x + ',' + path.currentLetterCoordinate.y] = true);
 
   // let bestPath: Path | null = null;
 
-  while(currentPath.currentLetterElevation !== END_LETTER) {
+  while(!currentPath || currentPath.currentLetterElevation !== END_LETTER) {
     if(pathsToTestQueue.length > 0) {
       currentPath = pathsToTestQueue.shift()!;
       // if(currentPath.currentLetterElevation === END_LETTER) {
@@ -124,32 +123,32 @@ function getShortestPathPart1(lines: string[]): Path {
       
     } else {
       console.log('NO MORE PATHS!!!');
-      return currentPath;;
+      return currentPath as Path;
     }
   }
 
   return currentPath;
 }
 
-function getStartingPath(lines: string[]) {
+function getStartingPaths(lines: string[]) {
+  const paths: Path[] = [];
   console.log('lines and lengths', lines.length, lines[0].length);
   for(let y = 0; y < lines.length; y++) {
     for (let x = 0; x < lines[y].length; x++) {
       const letterElevation = lines[y][x];
-      if(letterElevation === START_LETTER) {
-        return {
+      if(letterElevation === START_LETTER || letterElevation === 'a') {
+        paths.push({
           currentLetterElevation: letterElevation,
           currentLetterCoordinate: {
             x,
             y
           },
           steps: []
-        };
+        });
       }
     }
   }
-  console.log('NO Starting point found!');
-  return null;
+  return paths;
 
 }
 
