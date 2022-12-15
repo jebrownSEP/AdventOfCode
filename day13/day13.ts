@@ -37,34 +37,53 @@ function getPairsOfPacketsPart2(lines: string[]) {
   return [];
 }
 
-function parsePacketItems(line: string): (Packet | number)[] {
-  let items: (Packet | number)[] = [];
+//TODO: only this one is not working... :( )
+function parsePacketItems(line: string): any[] {
+  let items: any[] = [];
   if(line.length === 0) {
     return items;
   }
-  for(let i = 0; i < line.length; i++) {
-    if(line[i] === '[') {
-      const matchingBraceIndex = findMatchingBraceIndex(line, i);
-      items.push(parsePacketItems(line.substring(i + 1, matchingBraceIndex));
-    } else if(line[i] === ']') {
-      console.log('ERROR reached end brace ] ');
-    } else if(line[i] === ',') {
+  let lineModified = line + '';
+  let modifiedIndex = 0;
+  while (modifiedIndex < lineModified.length && lineModified.length > 0) {
+    if(lineModified[modifiedIndex] === '[') {
+      const matchingBraceIndex = findMatchingBraceIndex(lineModified, modifiedIndex);
+      const newPacketString = lineModified.substring(modifiedIndex + 1, matchingBraceIndex); // TODO: HERE Bug: getting '' sometimes...
+      // console.log('newpacketString', newPacketString);
+      items.push(parsePacketItems(newPacketString));
+      // lineModified = lineModified.substring(matchingBraceIndex + 1);
+      lineModified = lineModified.replace(newPacketString, ''); // TODO: HERE NEed to write a custom replace to replace at the substring index
+
+      // console.log('new lineModified', lineModified);
+      modifiedIndex -= 1;
+    } else if(lineModified[modifiedIndex] === ']') {
+      // console.log('ERROR reached end brace ] ');
+    } else if(lineModified[modifiedIndex] === ',') {
       // ignore?
     } else {
       // number
-      const number = getFullNumber(line, i);
-      items.push(number);
+      const endIndex = getEndNumberIndex(lineModified, modifiedIndex);
+      items.push(parseInt(lineModified.substring(modifiedIndex, endIndex + 1)));
     }
+    modifiedIndex += 1;
   }
   return items;
 }
 
 function findMatchingBraceIndex(line: string, indexOfStartBrace: number) {
-  const index = indexOfStartBrace + 1;
+  let bracesToSkip = 0;
+  let index = indexOfStartBrace + 1;
   while(index < line.length) {
     if(line[index] === ']') {
-      return index;
+      if(bracesToSkip === 0) {
+        return index;
+      } else {
+        bracesToSkip -= 1;
+      }
+    } else if(line[index] === '[') {
+      bracesToSkip += 1;
     }
+    index += 1;
   }
   console.log('ERRROR NO END BRACE FOUND');
   return -1;
@@ -75,12 +94,12 @@ function findMatchingBraceIndex(line: string, indexOfStartBrace: number) {
 // }
 
 // Simplified since largest number is 2 digits
-function getFullNumber(line: string, index: number): number {
+function getEndNumberIndex(line: string, index: number): number {
   if(((index + 1) < line.length ) && line[index + 1] >= '0' || line[index + 1] <= '9') {
     // another number character
-    return parseInt(line[index] + '' + line[index + 1]);
+    return index + 1;
   } else {
-    return parseInt(line[index]);
+    return index;
   }
 }
 
