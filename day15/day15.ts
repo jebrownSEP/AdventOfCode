@@ -1,7 +1,7 @@
 import { getFileByLinesSync, Coordinate } from '../shared/utils';
 import * as R from 'ramda';
 
-
+interface SetGrid {[y: number]: Set<number>};
 
 
 function getBeaconNotPresentPositions() {
@@ -16,14 +16,15 @@ function getBeaconNotPresentPositions() {
       return {part1: new Set(), part2: new Set()};
 }
 
+const grid: SetGrid = {};
+
 function getBeaconNotPresentPositionsInRowY(lines: string[], rowY: number) {
   // key is row (y), value is array of x coordinates where a beacon cannot be present
   // using Set to avoid pushing duplicates
-  const grid: {[y: number]: Set<number>} = {};
   // Likely do NOT need to track sensors or beacons as there won't be overlap
   // be sure to include sensor's position in the set (as no beacon is there)
   // For future reference: you can technically do this with a normal array as well, doesn't have to be an object/map
-  grid[rowY] = new Set();
+
   for (const line of lines) {
     const splitString = line.split('=');
     const sensorCoordinate: Coordinate = {
@@ -35,9 +36,11 @@ function getBeaconNotPresentPositionsInRowY(lines: string[], rowY: number) {
       y: parseIntUpToChar(splitString[4], '')
     };
 
-    getPositionsBeaconCannotBe(sensorCoordinate, beaconCoordinate);
+    addPositionsBeaconCannotBeToGrid(sensorCoordinate, beaconCoordinate);
   }
+  console.log('grid', grid);
 
+  return grid[rowY];
 }
 
 function parseIntUpToChar(stringToParse: string, characterToStopAt: string) {
@@ -48,44 +51,26 @@ function parseIntUpToChar(stringToParse: string, characterToStopAt: string) {
   return parseInt(stringToParse.substring(0, indexOfChar));
 }
 
-function getPositionsBeaconCannotBe(sensorCoord: Coordinate, beaconCoord: Coordinate): {[y: number]: Set<number>}{
+function addPositionsBeaconCannotBeToGrid(sensorCoord: Coordinate, beaconCoord: Coordinate) {
   const totalManhattanDistance = Math.abs(sensorCoord.x - beaconCoord.x) + Math.abs(sensorCoord.y - beaconCoord.y);
-  let coordinatesBeaconCannotBe = {};
   
-  coordinatesBeaconCannotBe.add(sensorCoord);
   
-  for (let i = 0; i < totalManhattanDistance; i++) {
+  for (let i = 0; i <= totalManhattanDistance; i++) {
     // add coordinates i distance away
-    const coordinatesIAway = getCoordinatesAtXDistance(sensorCoord, i);
-    coordinatesBeaconCannotBe = new Set([...coordinatesBeaconCannotBe, ...coordinatesIAway]);
+    addCoordinatesAtXDistanceToGrid(sensorCoord, i);
   }
- 
-  return coordinatesBeaconCannotBe;
 }
 
-function getCoordinatesAtXDistance(coordinate: Coordinate, distance: number) {
-  return new Set<Coordinate>([
-    // up 
-    {
-      x: coordinate.x,
-      y: coordinate.y - distance
-    },
-    // down
-    {
-      x: coordinate.x,
-      y: coordinate.y + distance
-    },
-    // left
-    {
-      x: coordinate.x - distance,
-      y: coordinate.y
-    },
-    // right
-    {
-      x: coordinate.x + distance,
-      y: coordinate.y
-    },
-  ]);
+function addCoordinatesAtXDistanceToGrid(coordinate: Coordinate, distance: number) {
+  const surroundingCoordinates = getCoordinatesAtXDistanceAround(coordinate, distance);
+
+  for (const coord of surroundingCoordinates) {
+    if(grid[coord.y] !== undefined) {
+      grid[coord.y].add(coord.x);
+    } else {
+      grid[coord.y] = new Set([coord.x]);
+    }
+  }
 }
 
 const start = Date.now();
@@ -95,3 +80,33 @@ const end = Date.now();
 console.log(end - start);
 console.log(part1);
 console.log("Part 1");
+
+// TODO: (now) figure out why this isn't getting all the points
+// TODO: (future) figure out why can't put this in utils...
+function getCoordinatesAtXDistanceAround(coordinate: Coordinate, distance: number): Coordinate[] {
+  if(distance === 0) {
+    return [coordinate];
+  }
+  const upCoordinate = {
+      x: coordinate.x,
+      y: coordinate.y - distance
+    };
+  
+    const downCoordinate =     {
+      x: coordinate.x,
+      y: coordinate.y + distance
+    };
+  
+    const leftCoordinate =     {
+      x: coordinate.x - distance,
+      y: coordinate.y
+    };
+  
+    const rightCoordinate =     {
+      x: coordinate.x + distance,
+      y: coordinate.y
+    };
+
+    return [...getCoordinatesAtXDistanceAround(upCoordinate, distance -1), ...getCoordinatesAtXDistanceAround(downCoordinate, distance -1), 
+      ...getCoordinatesAtXDistanceAround(leftCoordinate, distance -1), ...getCoordinatesAtXDistanceAround(rightCoordinate, distance -1)]
+}
