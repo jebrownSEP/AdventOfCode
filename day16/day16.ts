@@ -60,13 +60,6 @@ function createGrid(lines: string[]) {
 
 
   const startValve = connectValveWithLabel('AA');
-  // const currentValve = startValve;
-
-  // while(visitedValves.size < valves.length) {
-  //   visitedValves.add(currentValve.label);
-  //   currentValve.connectedValves = currentValve.connectedValveLabels.map((label) => connectValveWithLabel(valves, label));
-  // }
-
   return startValve;
 }
 
@@ -77,12 +70,10 @@ function findValveWithLabel(label: string) {
 
 function connectValveWithLabel(label: string) {
   const unconnectedValve = findValveWithLabel(label);
-  // visitedValves.add(unconnectedValve.label);
 
-  // TODO: still need the visited valves likely...
   if(!unconnectedValve.connectedValves) {
     unconnectedValve.connectedValves = [];
-    unconnectedValve.connectedValveLabels.map((innerLabel) => connectValveWithLabel(innerLabel));
+    unconnectedValve.connectedValves = unconnectedValve.connectedValveLabels.map((innerLabel) => connectValveWithLabel(innerLabel));
   }
   return unconnectedValve;
 }
