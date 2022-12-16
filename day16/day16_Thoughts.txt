@@ -1,0 +1,3 @@
+Minutes | Valves | Movement | Pressure releasing| Reason
+1       |        |  VS        |  0                | All lead 0, QK is 2 beyond which is most at 10
+2       |        | QK       | 0                    |

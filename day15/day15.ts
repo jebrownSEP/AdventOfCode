@@ -1,4 +1,4 @@
-import { getFileByLinesSync, Coordinate } from '../shared/utils';
+import { getFileByLinesSync, Coordinate, parseIntUpToChar } from '../shared/utils';
 import * as R from 'ramda';
 
 interface SetGrid {[y: number]: Set<number>};
@@ -43,13 +43,7 @@ function getBeaconNotPresentPositionsInRowY(lines: string[], rowY: number) {
   return grid[rowY];
 }
 
-function parseIntUpToChar(stringToParse: string, characterToStopAt: string) {
-  if(characterToStopAt === '') {
-    return parseInt(stringToParse);
-  }
-  const indexOfChar = stringToParse.indexOf(characterToStopAt);
-  return parseInt(stringToParse.substring(0, indexOfChar));
-}
+
 
 function addPositionsBeaconCannotBeToGrid(sensorCoord: Coordinate, beaconCoord: Coordinate) {
   const totalManhattanDistance = Math.abs(sensorCoord.x - beaconCoord.x) + Math.abs(sensorCoord.y - beaconCoord.y);
@@ -109,4 +103,13 @@ function getCoordinatesAtXDistanceAround(coordinate: Coordinate, distance: numbe
 
     return [...getCoordinatesAtXDistanceAround(upCoordinate, distance -1), ...getCoordinatesAtXDistanceAround(downCoordinate, distance -1), 
       ...getCoordinatesAtXDistanceAround(leftCoordinate, distance -1), ...getCoordinatesAtXDistanceAround(rightCoordinate, distance -1)]
+}
+
+
+export function parseIntUpToChar(stringToParse: string, characterToStopAt: string) {
+  if(characterToStopAt === '') {
+    return parseInt(stringToParse);
+  }
+  const indexOfChar = stringToParse.indexOf(characterToStopAt);
+  return parseInt(stringToParse.substring(0, indexOfChar));
 }
