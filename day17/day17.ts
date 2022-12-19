@@ -106,7 +106,8 @@ function getHeightOfRocksAfterXRocks(totalRocksToWaitFor: number) {
               // height at 999999999168 rocks = 3053 + (2778 * 573065901) = 1591977076031
 
     // 1000000000000 - 999999999168 = 832
-
+    // With that rock difference, we get 1321 height difference so total is 
+    // 1591977076031 + 1321 = 1591977077352
     //  Rock,JET,resting,height
     
     

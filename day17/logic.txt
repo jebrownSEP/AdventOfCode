@@ -1,0 +1,4 @@
+* Looked for a pattern for when the jet index was repeating for the same rock indexed
+* Found a repeate at rocksResting 1923 and every 1745 rocks after that.
+* Found the corresponding height and that every 1745 rocks gave us 2778 height.
+* Did the math to extend this to the very large number.
