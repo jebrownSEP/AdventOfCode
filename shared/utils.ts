@@ -19,4 +19,10 @@ export interface Coordinate {
     y: number;
 }
 
+export interface ThreeDCoordinate {
+    x: number;
+    y: number;
+    z: number;
+}
+
 

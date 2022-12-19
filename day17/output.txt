@@ -1,0 +1,646 @@
+rocks remaining 1622
+taken time in minutes 0.00011666666666666667
+rocks remaining 1522
+taken time in minutes 0.00018333333333333334
+rocks remaining 1422
+taken time in minutes 0.00021666666666666666
+rocks remaining 1322
+taken time in minutes 0.00021666666666666666
+rocks remaining 1222
+taken time in minutes 0.00025
+rocks remaining 1122
+taken time in minutes 0.0002666666666666667
+rocks remaining 1022
+taken time in minutes 0.00028333333333333335
+rocks remaining 922
+taken time in minutes 0.00048333333333333334
+rocks remaining 822
+taken time in minutes 0.0005166666666666667
+rocks remaining 722
+taken time in minutes 0.0005333333333333334
+rocks remaining 622
+taken time in minutes 0.00055
+rocks remaining 522
+taken time in minutes 0.0005666666666666667
+rocks remaining 422
+taken time in minutes 0.0006
+rocks remaining 322
+taken time in minutes 0.0006166666666666666
+rocks remaining 222
+taken time in minutes 0.0006333333333333333
+rocks remaining 122
+taken time in minutes 0.00065
+rocks remaining 22
+taken time in minutes 0.0006666666666666666
+Total time (ms):  40
+Part 2
+3202
+jebrown@DoodleBob-v3 ~/Repos/Learning/AdventOfCode -  (main) $ npx ts-node day17/day17.ts
+start 1671340569036
+rocks remaining 2022
+taken time in minutes 0.000033333333333333335
+rocks remaining 1022
+taken time in minutes 0.00025
+rocks remaining 22
+taken time in minutes 0.0005833333333333334
+Total time (ms):  35
+Part 2
+3202
+jebrown@DoodleBob-v3 ~/Repos/Learning/AdventOfCode -  (main) $ npx ts-node day17/day17.ts
+start 1671340580504
+rocks remaining 2022
+taken time in minutes 0.000016666666666666667
+rocks remaining 1022
+taken time in minutes 0.00023333333333333333
+rocks remaining 22
+taken time in minutes 0.0005833333333333334
+Total time (ms):  36
+Part 2
+3202
+jebrown@DoodleBob-v3 ~/Repos/Learning/AdventOfCode -  (main) $ npx ts-node day17/day17.ts
+start 1671340584218
+rocks remaining 2022
+taken time in minutes 0.000016666666666666667
+Total time (ms):  40
+Part 2
+3202
+jebrown@DoodleBob-v3 ~/Repos/Learning/AdventOfCode -  (main) $ npx ts-node day17/day17.ts
+start 1671340596360
+rocks remaining 1000000000000
+taken time in minutes 0.000016666666666666667
+rocks remaining 999999000000
+taken time in minutes 0.023133333333333332
+rocks remaining 999998000000
+taken time in minutes 0.05773333333333333
+rocks remaining 999997000000
+taken time in minutes 0.09636666666666667
+rocks remaining 999996000000
+taken time in minutes 0.13863333333333333
+rocks remaining 999995000000
+taken time in minutes 0.19773333333333334
+rocks remaining 999994000000
+taken time in minutes 0.2554
+rocks remaining 999993000000
+taken time in minutes 0.31673333333333337
+rocks remaining 999992000000
+taken time in minutes 0.38308333333333333
+rocks remaining 999991000000
+taken time in minutes 0.4781166666666667
+rocks remaining 999990000000
+taken time in minutes 0.5833499999999999
+rocks remaining 999989000000
+taken time in minutes 0.68965
+rocks remaining 999988000000
+taken time in minutes 0.7873833333333333
+rocks remaining 999987000000
+taken time in minutes 0.8941833333333334
+rocks remaining 999986000000
+taken time in minutes 1.0090833333333333
+rocks remaining 999985000000
+taken time in minutes 1.1205500000000002
+rocks remaining 999984000000
+taken time in minutes 1.1917499999999999
+rocks remaining 999983000000
+taken time in minutes 1.2657166666666666
+rocks remaining 999982000000
+taken time in minutes 1.3349
+rocks remaining 999981000000
+taken time in minutes 1.4060833333333334
+rocks remaining 999980000000
+taken time in minutes 1.4744166666666667
+rocks remaining 999979000000
+taken time in minutes 1.5523833333333334
+rocks remaining 999978000000
+taken time in minutes 1.6309166666666668
+rocks remaining 999977000000
+taken time in minutes 1.6984333333333335
+rocks remaining 999976000000
+taken time in minutes 1.7673333333333334
+rocks remaining 999975000000
+taken time in minutes 1.8404166666666666
+rocks remaining 999974000000
+taken time in minutes 1.90765
+rocks remaining 999973000000
+taken time in minutes 1.9783166666666667
+rocks remaining 999972000000
+taken time in minutes 2.0525
+rocks remaining 999971000000
+taken time in minutes 2.1195
+rocks remaining 999970000000
+taken time in minutes 2.1926666666666668
+rocks remaining 999969000000
+taken time in minutes 2.266116666666667
+rocks remaining 999968000000
+taken time in minutes 2.33305
+rocks remaining 999967000000
+taken time in minutes 2.4016
+rocks remaining 999966000000
+taken time in minutes 2.4749833333333333
+rocks remaining 999965000000
+taken time in minutes 2.5423166666666663
+rocks remaining 999964000000
+taken time in minutes 2.61145
+rocks remaining 999963000000
+taken time in minutes 2.6885166666666667
+rocks remaining 999962000000
+taken time in minutes 2.7556333333333334
+rocks remaining 999961000000
+taken time in minutes 2.8247
+rocks remaining 999960000000
+taken time in minutes 2.8981333333333335
+rocks remaining 999959000000
+taken time in minutes 2.965316666666667
+rocks remaining 999958000000
+taken time in minutes 3.034266666666667
+rocks remaining 999957000000
+taken time in minutes 3.1070833333333336
+rocks remaining 999956000000
+taken time in minutes 3.175316666666667
+rocks remaining 999955000000
+taken time in minutes 3.2441166666666663
+rocks remaining 999954000000
+taken time in minutes 3.3179333333333334
+rocks remaining 999953000000
+taken time in minutes 3.3853
+rocks remaining 999952000000
+taken time in minutes 3.4541
+rocks remaining 999951000000
+taken time in minutes 3.5276833333333335
+rocks remaining 999950000000
+taken time in minutes 3.5947166666666663
+rocks remaining 999949000000
+taken time in minutes 3.6635166666666668
+rocks remaining 999948000000
+taken time in minutes 3.7359500000000003
+rocks remaining 999947000000
+taken time in minutes 3.8022833333333335
+rocks remaining 999946000000
+taken time in minutes 3.8712999999999997
+rocks remaining 999945000000
+taken time in minutes 3.9445666666666668
+rocks remaining 999944000000
+taken time in minutes 4.011416666666666
+rocks remaining 999943000000
+taken time in minutes 4.080116666666666
+rocks remaining 999942000000
+taken time in minutes 4.153583333333334
+rocks remaining 999941000000
+taken time in minutes 4.220383333333333
+rocks remaining 999940000000
+taken time in minutes 4.288966666666667
+rocks remaining 999939000000
+taken time in minutes 4.36135
+rocks remaining 999938000000
+taken time in minutes 4.42765
+rocks remaining 999937000000
+taken time in minutes 4.496683333333333
+rocks remaining 999936000000
+taken time in minutes 4.570049999999999
+rocks remaining 999935000000
+taken time in minutes 4.63745
+rocks remaining 999934000000
+taken time in minutes 4.706966666666667
+rocks remaining 999933000000
+taken time in minutes 4.780966666666667
+rocks remaining 999932000000
+taken time in minutes 4.8476333333333335
+rocks remaining 999931000000
+taken time in minutes 4.916166666666667
+rocks remaining 999930000000
+taken time in minutes 4.989050000000001
+rocks remaining 999929000000
+taken time in minutes 5.055983333333333
+rocks remaining 999928000000
+taken time in minutes 5.124666666666667
+rocks remaining 999927000000
+taken time in minutes 5.197933333333333
+rocks remaining 999926000000
+taken time in minutes 5.264883333333333
+rocks remaining 999925000000
+taken time in minutes 5.3339
+rocks remaining 999924000000
+taken time in minutes 5.406949999999999
+rocks remaining 999923000000
+taken time in minutes 5.4736
+rocks remaining 999922000000
+taken time in minutes 5.542183333333333
+rocks remaining 999921000000
+taken time in minutes 5.615216666666667
+rocks remaining 999920000000
+taken time in minutes 5.682633333333333
+rocks remaining 999919000000
+taken time in minutes 5.75135
+rocks remaining 999918000000
+taken time in minutes 5.8243
+rocks remaining 999917000000
+taken time in minutes 5.890733333333333
+rocks remaining 999916000000
+taken time in minutes 5.959149999999999
+rocks remaining 999915000000
+taken time in minutes 6.031766666666667
+rocks remaining 999914000000
+taken time in minutes 6.098616666666667
+rocks remaining 999913000000
+taken time in minutes 6.1679
+rocks remaining 999912000000
+taken time in minutes 6.240666666666667
+rocks remaining 999911000000
+taken time in minutes 6.307383333333333
+rocks remaining 999910000000
+taken time in minutes 6.3764
+rocks remaining 999909000000
+taken time in minutes 6.449466666666667
+rocks remaining 999908000000
+taken time in minutes 6.515933333333334
+rocks remaining 999907000000
+taken time in minutes 6.58475
+rocks remaining 999906000000
+taken time in minutes 6.658483333333334
+rocks remaining 999905000000
+taken time in minutes 6.725066666666667
+rocks remaining 999904000000
+taken time in minutes 6.794233333333334
+rocks remaining 999903000000
+taken time in minutes 6.867450000000001
+rocks remaining 999902000000
+taken time in minutes 6.933916666666667
+rocks remaining 999901000000
+taken time in minutes 7.002533333333333
+rocks remaining 999900000000
+taken time in minutes 7.075699999999999
+rocks remaining 999899000000
+taken time in minutes 7.142683333333333
+rocks remaining 999898000000
+taken time in minutes 7.211600000000001
+rocks remaining 999897000000
+taken time in minutes 7.28475
+rocks remaining 999896000000
+taken time in minutes 7.351083333333333
+rocks remaining 999895000000
+taken time in minutes 7.420133333333334
+rocks remaining 999894000000
+taken time in minutes 7.4935
+rocks remaining 999893000000
+taken time in minutes 7.560233333333333
+rocks remaining 999892000000
+taken time in minutes 7.6293
+rocks remaining 999891000000
+taken time in minutes 7.703183333333333
+rocks remaining 999890000000
+taken time in minutes 7.771
+rocks remaining 999889000000
+taken time in minutes 7.845249999999999
+rocks remaining 999888000000
+taken time in minutes 7.9200333333333335
+rocks remaining 999887000000
+taken time in minutes 7.987966666666667
+rocks remaining 999886000000
+taken time in minutes 8.056716666666667
+rocks remaining 999885000000
+taken time in minutes 8.135349999999999
+rocks remaining 999884000000
+taken time in minutes 8.20395
+rocks remaining 999883000000
+taken time in minutes 8.273033333333334
+rocks remaining 999882000000
+taken time in minutes 8.346183333333334
+rocks remaining 999881000000
+taken time in minutes 8.41295
+rocks remaining 999880000000
+taken time in minutes 8.481683333333333
+rocks remaining 999879000000
+taken time in minutes 8.55465
+rocks remaining 999878000000
+taken time in minutes 8.621433333333332
+rocks remaining 999877000000
+taken time in minutes 8.691066666666668
+rocks remaining 999876000000
+taken time in minutes 8.762966666666667
+rocks remaining 999875000000
+taken time in minutes 8.828766666666667
+rocks remaining 999874000000
+taken time in minutes 8.8962
+rocks remaining 999873000000
+taken time in minutes 8.964699999999999
+rocks remaining 999872000000
+taken time in minutes 9.027133333333333
+rocks remaining 999871000000
+taken time in minutes 9.089783333333333
+rocks remaining 999870000000
+taken time in minutes 9.163066666666667
+rocks remaining 999869000000
+taken time in minutes 9.23205
+rocks remaining 999868000000
+taken time in minutes 9.3014
+rocks remaining 999867000000
+taken time in minutes 9.375333333333334
+rocks remaining 999866000000
+taken time in minutes 9.442666666666666
+rocks remaining 999865000000
+taken time in minutes 9.510633333333335
+rocks remaining 999864000000
+taken time in minutes 9.579416666666667
+rocks remaining 999863000000
+taken time in minutes 9.640733333333333
+rocks remaining 999862000000
+taken time in minutes 9.705549999999999
+rocks remaining 999861000000
+taken time in minutes 9.773016666666667
+rocks remaining 999860000000
+taken time in minutes 9.840066666666667
+rocks remaining 999859000000
+taken time in minutes 9.9068
+rocks remaining 999858000000
+taken time in minutes 9.97995
+rocks remaining 999857000000
+taken time in minutes 10.04945
+rocks remaining 999856000000
+taken time in minutes 10.120516666666667
+rocks remaining 999855000000
+taken time in minutes 10.197049999999999
+rocks remaining 999854000000
+taken time in minutes 10.266966666666667
+rocks remaining 999853000000
+taken time in minutes 10.336666666666668
+rocks remaining 999852000000
+taken time in minutes 10.41075
+rocks remaining 999851000000
+taken time in minutes 10.477433333333332
+rocks remaining 999850000000
+taken time in minutes 10.547266666666667
+rocks remaining 999849000000
+taken time in minutes 10.620733333333334
+rocks remaining 999848000000
+taken time in minutes 10.688383333333332
+rocks remaining 999847000000
+taken time in minutes 10.758666666666667
+rocks remaining 999846000000
+taken time in minutes 10.831966666666666
+rocks remaining 999845000000
+taken time in minutes 10.898816666666667
+rocks remaining 999844000000
+taken time in minutes 10.967483333333332
+rocks remaining 999843000000
+taken time in minutes 11.040833333333333
+rocks remaining 999842000000
+taken time in minutes 11.108083333333333
+rocks remaining 999841000000
+taken time in minutes 11.177999999999999
+rocks remaining 999840000000
+taken time in minutes 11.251616666666667
+rocks remaining 999839000000
+taken time in minutes 11.318366666666666
+rocks remaining 999838000000
+taken time in minutes 11.387366666666667
+rocks remaining 999837000000
+taken time in minutes 11.460816666666666
+rocks remaining 999836000000
+taken time in minutes 11.5274
+rocks remaining 999835000000
+taken time in minutes 11.596416666666666
+rocks remaining 999834000000
+taken time in minutes 11.6703
+rocks remaining 999833000000
+taken time in minutes 11.73785
+rocks remaining 999832000000
+taken time in minutes 11.806916666666666
+rocks remaining 999831000000
+taken time in minutes 11.880183333333333
+rocks remaining 999830000000
+taken time in minutes 11.947216666666666
+rocks remaining 999829000000
+taken time in minutes 12.0162
+rocks remaining 999828000000
+taken time in minutes 12.089699999999999
+rocks remaining 999827000000
+taken time in minutes 12.156833333333333
+rocks remaining 999826000000
+taken time in minutes 12.225783333333334
+rocks remaining 999825000000
+taken time in minutes 12.29895
+rocks remaining 999824000000
+taken time in minutes 12.365483333333334
+rocks remaining 999823000000
+taken time in minutes 12.434816666666668
+rocks remaining 999822000000
+taken time in minutes 12.508266666666666
+rocks remaining 999821000000
+taken time in minutes 12.575033333333332
+rocks remaining 999820000000
+taken time in minutes 12.6446
+rocks remaining 999819000000
+taken time in minutes 12.724250000000001
+rocks remaining 999818000000
+taken time in minutes 12.793299999999999
+rocks remaining 999817000000
+taken time in minutes 12.863133333333334
+rocks remaining 999816000000
+taken time in minutes 12.939533333333333
+rocks remaining 999815000000
+taken time in minutes 13.00645
+rocks remaining 999814000000
+taken time in minutes 13.074366666666666
+rocks remaining 999813000000
+taken time in minutes 13.147216666666667
+rocks remaining 999812000000
+taken time in minutes 13.214233333333334
+rocks remaining 999811000000
+taken time in minutes 43.22005
+rocks remaining 999810000000
+taken time in minutes 43.292699999999996
+rocks remaining 999809000000
+taken time in minutes 43.48575
+rocks remaining 999808000000
+taken time in minutes 43.78546666666667
+rocks remaining 999807000000
+taken time in minutes 44.097566666666665
+rocks remaining 999806000000
+taken time in minutes 44.394866666666665
+rocks remaining 999805000000
+taken time in minutes 63.602533333333334
+rocks remaining 999804000000
+taken time in minutes 63.67581666666667
+rocks remaining 999803000000
+taken time in minutes 63.81303333333334
+rocks remaining 999802000000
+taken time in minutes 64.11981666666667
+rocks remaining 999801000000
+taken time in minutes 64.43486666666666
+rocks remaining 999800000000
+taken time in minutes 64.73725
+rocks remaining 999799000000
+taken time in minutes 80.12756666666668
+rocks remaining 999798000000
+taken time in minutes 80.20051666666667
+rocks remaining 999797000000
+taken time in minutes 80.31118333333333
+rocks remaining 999796000000
+taken time in minutes 80.6109
+rocks remaining 999795000000
+taken time in minutes 80.92261666666667
+rocks remaining 999794000000
+taken time in minutes 81.21925
+rocks remaining 999793000000
+taken time in minutes 99.74458333333334
+rocks remaining 999792000000
+taken time in minutes 99.8169
+rocks remaining 999791000000
+taken time in minutes 99.88311666666667
+rocks remaining 999790000000
+taken time in minutes 100.1669
+rocks remaining 999789000000
+taken time in minutes 100.47861666666667
+rocks remaining 999788000000
+taken time in minutes 117.35416666666667
+rocks remaining 999787000000
+taken time in minutes 117.42391666666667
+rocks remaining 999786000000
+taken time in minutes 117.57965
+rocks remaining 999785000000
+taken time in minutes 117.877
+rocks remaining 999784000000
+taken time in minutes 134.26163333333335
+rocks remaining 999783000000
+taken time in minutes 134.33461666666668
+rocks remaining 999782000000
+taken time in minutes 134.40275
+rocks remaining 999781000000
+taken time in minutes 134.63825
+rocks remaining 999780000000
+taken time in minutes 134.94951666666665
+rocks remaining 999779000000
+taken time in minutes 177.44005
+rocks remaining 999778000000
+taken time in minutes 177.50875
+rocks remaining 999777000000
+taken time in minutes 177.61098333333334
+rocks remaining 999776000000
+taken time in minutes 177.91676666666666
+rocks remaining 999775000000
+taken time in minutes 178.21791666666667
+rocks remaining 999774000000
+taken time in minutes 178.53651666666667
+rocks remaining 999773000000
+taken time in minutes 178.83345
+rocks remaining 999772000000
+taken time in minutes 179.13241666666667
+rocks remaining 999771000000
+taken time in minutes 179.40346666666667
+rocks remaining 999770000000
+taken time in minutes 179.64431666666667
+rocks remaining 999769000000
+taken time in minutes 179.88378333333333
+rocks remaining 999768000000
+taken time in minutes 180.09521666666666
+rocks remaining 999767000000
+taken time in minutes 180.27088333333333
+rocks remaining 999766000000
+taken time in minutes 195.86955
+rocks remaining 999765000000
+taken time in minutes 195.94433333333333
+rocks remaining 999764000000
+taken time in minutes 196.01235
+rocks remaining 999763000000
+taken time in minutes 196.28253333333333
+rocks remaining 999762000000
+taken time in minutes 196.5957
+rocks remaining 999761000000
+taken time in minutes 213.81730000000002
+rocks remaining 999760000000
+taken time in minutes 213.88593333333336
+rocks remaining 999759000000
+taken time in minutes 214.02506666666667
+rocks remaining 999758000000
+taken time in minutes 214.32166666666666
+rocks remaining 999757000000
+taken time in minutes 230.71865
+rocks remaining 999756000000
+taken time in minutes 230.79219999999998
+rocks remaining 999755000000
+taken time in minutes 230.85933333333332
+rocks remaining 999754000000
+taken time in minutes 231.06175
+rocks remaining 999753000000
+taken time in minutes 231.3741
+rocks remaining 999752000000
+taken time in minutes 231.57298333333335
+rocks remaining 999751000000
+taken time in minutes 231.64008333333334
+rocks remaining 999750000000
+taken time in minutes 231.71233333333333
+rocks remaining 999749000000
+taken time in minutes 231.77915
+rocks remaining 999748000000
+taken time in minutes 231.84758333333332
+rocks remaining 999747000000
+taken time in minutes 231.91966666666667
+rocks remaining 999746000000
+taken time in minutes 231.98581666666666
+rocks remaining 999745000000
+taken time in minutes 232.05671666666666
+rocks remaining 999744000000
+taken time in minutes 232.12978333333334
+rocks remaining 999743000000
+taken time in minutes 232.19636666666665
+rocks remaining 999742000000
+taken time in minutes 232.26476666666667
+rocks remaining 999741000000
+taken time in minutes 232.33765
+rocks remaining 999740000000
+taken time in minutes 249.0821
+rocks remaining 999739000000
+taken time in minutes 249.15018333333333
+rocks remaining 999738000000
+taken time in minutes 249.33596666666665
+rocks remaining 999737000000
+taken time in minutes 249.63293333333334
+rocks remaining 999736000000
+taken time in minutes 267.5384833333333
+rocks remaining 999735000000
+taken time in minutes 267.61295
+rocks remaining 999734000000
+taken time in minutes 267.67926666666665
+rocks remaining 999733000000
+taken time in minutes 267.94853333333333
+rocks remaining 999732000000
+taken time in minutes 268.2596833333333
+rocks remaining 999731000000
+taken time in minutes 284.46756666666664
+rocks remaining 999730000000
+taken time in minutes 284.53723333333335
+rocks remaining 999729000000
+taken time in minutes 284.67780000000005
+rocks remaining 999728000000
+taken time in minutes 284.9746666666667
+rocks remaining 999727000000
+taken time in minutes 304.02386666666666
+rocks remaining 999726000000
+taken time in minutes 304.0981333333333
+rocks remaining 999725000000
+taken time in minutes 304.1648666666667
+rocks remaining 999724000000
+taken time in minutes 304.386
+rocks remaining 999723000000
+taken time in minutes 304.6977666666667
+rocks remaining 999722000000
+taken time in minutes 369.7485666666667
+rocks remaining 999721000000
+taken time in minutes 369.8172666666667
+rocks remaining 999720000000
+taken time in minutes 369.89476666666667
+rocks remaining 999719000000
+taken time in minutes 370.19171666666665
+rocks remaining 999718000000
+taken time in minutes 370.49235000000004
+rocks remaining 999717000000
+taken time in minutes 418.2687666666667
+rocks remaining 999716000000
+taken time in minutes 418.33823333333333
+rocks remaining 999715000000
+taken time in minutes 418.40855
+rocks remaining 999714000000
+taken time in minutes 418.4843166666667
+rocks remaining 999713000000
+taken time in minutes 418.5516666666666
+rocks remaining 999712000000
+taken time in minutes 418.6199
