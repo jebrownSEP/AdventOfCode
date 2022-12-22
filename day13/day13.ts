@@ -2,13 +2,13 @@ import { getFileByLinesSync, Coordinate } from '../shared/utils';
 import * as R from 'ramda';
 
 interface PacketPair {
-  packet1: Packet;
-  packet2: Packet;
+  packet1: any[];
+  packet2: any[];
 }
 
-interface Packet {
-  items: (Packet | number)[];
-}
+// interface Packet {
+//   items: (Packet | number)[];
+// }
 
 function getPairsOfPackets() {
     try {
@@ -25,8 +25,8 @@ function getPairsOfPackets() {
 function getPairsOfPacketsPart1(lines: string[]) {
   const packetPairs: PacketPair[] = [];
   for(let i = 0; i< lines.length; i+=3) { 
-    const packet1 = {items: parsePacketItems(lines[i].substring(1, lines[i].length-1))}
-    const packet2 = {items: parsePacketItems(lines[i+1].substring(1, lines[i+1].length-1))}
+    const packet1 = parsePacketItems(lines[i].substring(1, lines[i].length-1))
+    const packet2 = parsePacketItems(lines[i+1].substring(1, lines[i+1].length-1))
     packetPairs.push({packet1, packet2});
   }
 
@@ -37,7 +37,6 @@ function getPairsOfPacketsPart2(lines: string[]) {
   return [];
 }
 
-//TODO: only this one is not working... :( )
 function parsePacketItems(line: string): any[] {
   let items: any[] = [];
   if(line.length === 0) {
@@ -48,14 +47,14 @@ function parsePacketItems(line: string): any[] {
   while (modifiedIndex < lineModified.length && lineModified.length > 0) {
     if(lineModified[modifiedIndex] === '[') {
       const matchingBraceIndex = findMatchingBraceIndex(lineModified, modifiedIndex);
-      const newPacketString = lineModified.substring(modifiedIndex + 1, matchingBraceIndex); // TODO: HERE Bug: getting '' sometimes...
+      const newPacketString = lineModified.substring(modifiedIndex + 1, matchingBraceIndex); // TODO: HERE Bug: getting '' sometimes... tho is that ok?...
       // console.log('newpacketString', newPacketString);
       items.push(parsePacketItems(newPacketString));
       // lineModified = lineModified.substring(matchingBraceIndex + 1);
-      lineModified = lineModified.replace(newPacketString, ''); // TODO: HERE NEed to write a custom replace to replace at the substring index
+      lineModified = replaceFromIndexes(lineModified, modifiedIndex , matchingBraceIndex + 1);
 
       // console.log('new lineModified', lineModified);
-      modifiedIndex -= 1;
+      modifiedIndex = 0;
     } else if(lineModified[modifiedIndex] === ']') {
       // console.log('ERROR reached end brace ] ');
     } else if(lineModified[modifiedIndex] === ',') {
@@ -68,6 +67,10 @@ function parsePacketItems(line: string): any[] {
     modifiedIndex += 1;
   }
   return items;
+}
+
+function replaceFromIndexes(stringToModify: string, startIndex: number, endIndex: number) {
+  return stringToModify.substring(0, startIndex) + stringToModify.substring(endIndex);
 }
 
 function findMatchingBraceIndex(line: string, indexOfStartBrace: number) {
@@ -110,3 +113,8 @@ const end = Date.now();
 console.log(end - start);
 console.log(JSON.stringify(part1));
 console.log("Part 1");
+
+// console.log(replaceFromIndexes('[0]', ))
+
+// [1,[2,[3,[4,[5,6,7]]]],8,9]
+// [1,[2,[3,[4,[5,6,0]]]],8,9]
