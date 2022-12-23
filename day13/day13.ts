@@ -10,16 +10,87 @@ interface PacketPair {
 //   items: (Packet | number)[];
 // }
 
-function getPairsOfPackets() {
+function getPairsOfPacketsInRightOrder() {
     try {
         const lines = getFileByLinesSync('./day13/day13.txt');
-        const part1 =  getPairsOfPacketsPart1(lines)
+        const packets1 =  getPairsOfPacketsPart1(lines);
+        const part1 = getIndicesOfRightOrderPackets(packets1);
         const part2 = getPairsOfPacketsPart2(lines);
-        return {part1, part2}
+        return {part1, part2, packets1}
       } catch (err) {
         console.error(err);
       }
       return {part1: [], part2: []};
+}
+
+function getIndicesOfRightOrderPackets(packetPairs: PacketPair[]) {
+  const indices: number[] = [];
+  packetPairs.forEach((packetPair, index) => {
+    const rightOrder = isInRightOrder(packetPair);
+    if(rightOrder === null) {
+      console.log('NULL', index + 1, packetPair);
+    }
+    else if(rightOrder === true) {
+      indices.push(index + 1);
+    }
+  });
+  return indices;
+}
+
+function isInRightOrder(packetPair: PacketPair): boolean|null {
+  const {packet1, packet2} = packetPair;
+
+  let index1 = 0;
+  let index2 = 0;
+  let element1 = packet1[index1];
+  let element2 = packet2[index2];
+  if(element1 == null && element2 != null) {
+    return true;
+  } else if(element1!= null && element2 == null) {
+    return false;
+  } else if(element1 == null && element2 == null) {
+    return null;
+  }
+  while(true) {
+    // Both numbers
+    if(!Array.isArray(element1) && !Array.isArray(element2) && element1 !== element2) {
+      return element1 < element2;
+    } else if(Array.isArray(element1) && Array.isArray(element2)) { // both lists
+      const rightOrder =  isInRightOrder({packet1: element1, packet2: element2});
+      if(rightOrder !== null) {
+        return rightOrder;
+      } else {
+        index1 +=1;
+        index2 +=1;
+        element1 = packet1[index1];
+        element2 = packet2[index2];
+        if(element1 == null && element2 != null) {
+          return true;
+        } else if(element1!= null && element2 == null) {
+          return false;
+        } else if(element1 == null && element2 == null) {
+          return null;
+        }
+      }
+    } else if(Array.isArray(element1) && !Array.isArray(element2)) {
+      element2 = [element2];
+    } else if(!Array.isArray(element1) && Array.isArray(element2)) {
+      element1 = [element1];
+    } else {
+      index1 +=1;
+      index2 +=1;
+      element1 = packet1[index1];
+      element2 = packet2[index2];
+      if(element1 == null && element2 != null) {
+        return true;
+      } else if(element1!= null && element2 == null) {
+        return false;
+      } else if(element1 == null && element2 == null) {
+        return null;
+      }
+    }
+  }
+  return null;
 }
 
 function getPairsOfPacketsPart1(lines: string[]) {
@@ -63,6 +134,9 @@ function parsePacketItems(line: string): any[] {
       // number
       const endIndex = getEndNumberIndex(lineModified, modifiedIndex);
       items.push(parseInt(lineModified.substring(modifiedIndex, endIndex + 1)));
+      if(endIndex > modifiedIndex) {
+        modifiedIndex +=1;
+      }
     }
     modifiedIndex += 1;
   }
@@ -108,13 +182,13 @@ function getEndNumberIndex(line: string, index: number): number {
 
 const start = Date.now();
 console.log('start', start);
-const {part1, part2} = getPairsOfPackets();
+const {part1, part2} = getPairsOfPacketsInRightOrder();
 const end = Date.now();
 console.log(end - start);
 console.log(JSON.stringify(part1));
 console.log("Part 1");
+console.log(R.sum(part1));
+// 5189 too low
+// 5346 too high
 
-// console.log(replaceFromIndexes('[0]', ))
-
-// [1,[2,[3,[4,[5,6,7]]]],8,9]
-// [1,[2,[3,[4,[5,6,0]]]],8,9]
+// 37 and 122 null
