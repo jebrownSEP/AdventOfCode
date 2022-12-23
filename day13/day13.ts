@@ -6,17 +6,13 @@ interface PacketPair {
   packet2: any[];
 }
 
-// interface Packet {
-//   items: (Packet | number)[];
-// }
-
 function getPairsOfPacketsInRightOrder() {
     try {
         const lines = getFileByLinesSync('./day13/day13.txt');
-        const packets1 =  getPairsOfPacketsPart1(lines);
-        const part1 = getIndicesOfRightOrderPackets(packets1);
-        const part2 = getPairsOfPacketsPart2(lines);
-        return {part1, part2, packets1}
+        // const packets1 =  getPairsOfPacketsPart1(lines);
+        // const part1 = getIndicesOfRightOrderPackets(packets1);
+        const part2 = getPacketsPart2(lines);
+        return {part1: [], part2}
       } catch (err) {
         console.error(err);
       }
@@ -104,8 +100,14 @@ function getPairsOfPacketsPart1(lines: string[]) {
   return packetPairs;
 }
 
-function getPairsOfPacketsPart2(lines: string[]) {
-  return [];
+function getPacketsPart2(lines: string[]): any[] {
+  const packets: any[] = [];
+  for(let i = 0; i< lines.length; i++) { 
+    if(lines[i] !== '') {
+      packets.push(parsePacketItems(lines[i].substring(1, lines[i].length-1)));
+    }
+  }
+  return packets;
 }
 
 function parsePacketItems(line: string): any[] {
@@ -118,7 +120,7 @@ function parsePacketItems(line: string): any[] {
   while (modifiedIndex < lineModified.length && lineModified.length > 0) {
     if(lineModified[modifiedIndex] === '[') {
       const matchingBraceIndex = findMatchingBraceIndex(lineModified, modifiedIndex);
-      const newPacketString = lineModified.substring(modifiedIndex + 1, matchingBraceIndex); // TODO: HERE Bug: getting '' sometimes... tho is that ok?...
+      const newPacketString = lineModified.substring(modifiedIndex + 1, matchingBraceIndex);
       // console.log('newpacketString', newPacketString);
       items.push(parsePacketItems(newPacketString));
       // lineModified = lineModified.substring(matchingBraceIndex + 1);
@@ -185,10 +187,29 @@ console.log('start', start);
 const {part1, part2} = getPairsOfPacketsInRightOrder();
 const end = Date.now();
 console.log(end - start);
-console.log(JSON.stringify(part1));
-console.log("Part 1");
-console.log(R.sum(part1));
-// 5189 too low
-// 5346 too high
+// console.log(JSON.stringify(part1));
+// console.log("Part 1");
+// console.log(R.sum(part1));
 
-// 37 and 122 null
+
+// console.log(JSON.stringify(part2), part2.length);
+console.log('Part2');
+const sorted = part2.sort((packet1, packet2) => {
+  const order = isInRightOrder({packet1, packet2});
+  if(order === true) {
+    return -1;
+  } else if(order === false) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
+console.log(JSON.stringify(sorted));
+for(const sortedArr of sorted) {
+  console.log(JSON.stringify(sortedArr));
+}
+// just copy it to text file and find it
+// 10 and 14 so answer is 10 * 14 = 140 for simple
+// Complex:
+// 105 and 199 => 105 * 199 = 20895 (too high)
+// Well I was pretty sure I was off by one... so tried 104 * 198 = 20592 and it worked...
