@@ -1,0 +1,25 @@
+Thought about trying to add the numbers as base 5, but I can't figure out the rules very well...
+So instead let's just convert them all to decimal numbers, sum them, and start from there.
+Main challenge is how to convert back to the base 5 (SNAFU) version...
+
+Digits we use
+0 1 2 - = 
+
+Right to left, places are
+1 5 25 125 625 3125
+
+Some conversion examples
+
+
+20 => 1-0
+Since it's less than 25, we will start with the first two places
+4 5s make 20 but we can only do 2.  So we need 1 in the 25s place, and then - gives us exactly 20.
+
+
+2022 => 1=11-2
+It's less than 3125, so start with the 625 place.
+If we put the max in each, 22222 => 1562 this is still less than 2022, so we need 1 in the 3125 place.
+3125 - (1*625) = 2500, not enough, so use 3125 - 2*625 = 1875
+Now try 1875 + 2*125 = 2125.  The most we can remove (or gain) with 3 places 222 => 62
+2125 - 62 = 2063 > 2022, so we need to use 1875 + 1*125 = 2000
+HERE 
